@@ -150,7 +150,6 @@ activemq-data/
 *.sage.py
 
 # Environments
-.env
 .envrc
 .venv
 env/
@@ -158,6 +157,14 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+*.env
+secrets/
+*.key
+*.pem
+credentials*
+*.tfstate
+*.tfstate.backup
+.terraform/
 
 # Spyder project settings
 .spyderproject
