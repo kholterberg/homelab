@@ -225,3 +225,13 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+
+# Terraform  (*.tfstate och .terraform/ täcks redan längre upp)
+*.tfvars
+
+# Ansible
+.vault_pass
+*vault-password*
+vault.yml
+**/vault.yml
