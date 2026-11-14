@@ -1,0 +1,6 @@
+---
+- name: Base configuration for all hosts
+  hosts: all
+  become: true
+  roles:
+    - base
