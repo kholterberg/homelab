@@ -4,3 +4,9 @@
   become: true
   roles:
     - base
+
+- name: Docker host configuration
+  hosts: docker_hosts
+  become: true
+  roles:
+    - docker-host
