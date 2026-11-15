@@ -30,7 +30,7 @@ to the internet; off-LAN access goes over Tailscale.
 
 - [x] Reverse proxy, internal DNS, wildcard TLS
 - [x] OPNsense as router, VLAN segmentation, isolated lab network
-- [ ] Infrastructure as code: Ansible and Terraform
+- [x] Infrastructure as code: Ansible and Terraform
 - [ ] Visibility: SIEM, IDS, honeypot
 - [ ] Active Directory lab
 - [ ] Detection engineering against my own attacks
