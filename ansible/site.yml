@@ -9,4 +9,4 @@
   hosts: docker_hosts
   become: true
   roles:
-    - docker-host
+    - docker_host

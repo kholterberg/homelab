@@ -22,6 +22,22 @@ jobs:
       - name: Validate
         run: terraform validate
 
+  ansible:
+    name: Ansible lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install ansible-lint
+        run: pip install ansible-lint
+      - name: Install collection dependencies
+        run: ansible-galaxy collection install -r ansible/requirements.yml
+      - name: Lint
+        run: ansible-lint
+        working-directory: ansible
+
   gitleaks:
     name: Secret scan
     runs-on: ubuntu-latest
