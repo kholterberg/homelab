@@ -24,8 +24,9 @@ to the internet; off-LAN access goes over Tailscale.
 
 ## Write-ups
 
-- [Wildcard HTTPS at home, behind an ISP router I thought was a dead end](docs/01-reverse-proxy-dns01.md)
+- [Reverse Proxy DNS](docs/01-reverse-proxy-dns01.md)
 - [OPNsense segmentation](docs/02-opnsense-segmentation.md)
+- [Infrastructure as Code](docs/03-infrastructure-as-code.md)
 ## Roadmap
 
 - [x] Reverse proxy, internal DNS, wildcard TLS
