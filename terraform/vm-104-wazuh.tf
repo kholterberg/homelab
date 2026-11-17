@@ -23,11 +23,11 @@ resource "proxmox_virtual_environment_vm" "wazuh" {
   }
 
   network_device {
-    bridge = "vmbr0"   # hemnäts-bryggan — bekräfta att dina CT:er sitter på vmbr0
+    bridge = "vmbr0" # hemnäts-bryggan — bekräfta att dina CT:er sitter på vmbr0
   }
 
   agent {
-    enabled = false    # guest-agent finns inte i cloud-image; lägger till senare
+    enabled = false # guest-agent finns inte i cloud-image; lägger till senare
   }
 
   initialization {
