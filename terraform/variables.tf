@@ -8,3 +8,7 @@ variable "proxmox_api_token" {
   description = "API-token på formen USER@REALM!TOKENID=SECRET"
   sensitive   = true
 }
+variable "ssh_public_key" {
+  type        = string
+  description = "Public SSH key for the Wazuh VM cloud-init user"
+}

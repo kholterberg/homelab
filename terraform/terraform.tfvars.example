@@ -1,2 +1,3 @@
 proxmox_endpoint  = "https://PROXMOX-IP:8006/"
 proxmox_api_token = "terraform@pve!terraform=REPLACE-WITH-TOKEN-SECRET"
+ssh_public_key    = "ssh-ed25519 AAAA...REPLACE-WITH-YOUR-PUBLIC-KEY... user@host"

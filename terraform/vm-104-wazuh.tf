@@ -46,7 +46,7 @@ resource "proxmox_virtual_environment_vm" "wazuh" {
 
     user_account {
       username = "kalle"
-      keys     = [trimspace(file("~/.ssh/id_ed25519.pub"))]
+      keys     = [var.ssh_public_key]
     }
   }
 
