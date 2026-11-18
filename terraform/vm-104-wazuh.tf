@@ -27,7 +27,7 @@ resource "proxmox_virtual_environment_vm" "wazuh" {
   }
 
   agent {
-    enabled = false # guest-agent finns inte i cloud-image; lägger till senare
+    enabled = true
   }
 
   initialization {
