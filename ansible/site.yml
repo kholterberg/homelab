@@ -10,3 +10,10 @@
   become: true
   roles:
     - docker_host
+
+- name: Wazuh-agent på alla övervakade hostar
+  hosts: all
+  become: true
+  tags: wazuh_agent
+  roles:
+    - wazuh_agent

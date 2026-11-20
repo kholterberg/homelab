@@ -1,0 +1,46 @@
+---
+- name: Installera repo-förutsättningar
+  ansible.builtin.apt:
+    name: [gnupg, curl, ca-certificates]
+    state: present
+    update_cache: true
+
+- name: Hämta Wazuhs GPG-nyckel
+  ansible.builtin.get_url:
+    url: https://packages.wazuh.com/key/GPG-KEY-WAZUH
+    dest: /tmp/wazuh-gpg.key
+    mode: "0644"
+
+- name: Avkoda nyckeln till keyring
+  ansible.builtin.command:
+    cmd: gpg --batch --yes --dearmor -o /usr/share/keyrings/wazuh.gpg /tmp/wazuh-gpg.key
+    creates: /usr/share/keyrings/wazuh.gpg
+
+- name: Lägg till Wazuhs APT-repo
+  ansible.builtin.apt_repository:
+    repo: "deb [signed-by=/usr/share/keyrings/wazuh.gpg] https://packages.wazuh.com/4.x/apt/ stable main"
+    filename: wazuh
+    state: present
+    update_cache: true
+
+- name: Installera wazuh-agent (pinnad, pekad mot managern vid första install)
+  ansible.builtin.apt:
+    name: "wazuh-agent={{ wazuh_agent_version }}"
+    state: present
+  environment:
+    WAZUH_MANAGER: "{{ wazuh_agent_manager }}"
+  notify: Restart wazuh-agent
+
+- name: Säkerställ manager-adress i ossec.conf (idempotent)
+  ansible.builtin.replace:
+    path: /var/ossec/etc/ossec.conf
+    regexp: '(<server>\s*<address>)[^<]+(</address>)'
+    replace: '\g<1>{{ wazuh_agent_manager }}\g<2>'
+  notify: Restart wazuh-agent
+
+- name: Aktivera och starta wazuh-agent
+  ansible.builtin.systemd:
+    name: wazuh-agent
+    enabled: true
+    state: started
+    daemon_reload: true

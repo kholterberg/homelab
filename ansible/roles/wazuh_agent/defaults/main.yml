@@ -1,0 +1,5 @@
+---
+# Managern agenten rapporterar till
+wazuh_agent_manager: "192.168.1.106"
+# Pinna agenten till managerns version (agent ska matcha manager major.minor)
+wazuh_agent_version: "4.14.10-1"
