@@ -27,7 +27,7 @@ to the internet; off-LAN access goes over Tailscale.
 - [Reverse Proxy DNS](docs/01-reverse-proxy-dns01.md)
 - [OPNsense segmentation](docs/02-opnsense-segmentation.md)
 - [Infrastructure as Code](docs/03-infrastructure-as-code.md)
-- [Infrastructure as Code](docs/04-visibility-siem-ids-honeypot.md)
+- [Visibility: SIEM, IDS and Honeypot](docs/04-visibility-siem-ids-honeypot.md)
 ## Roadmap
 
 - [x] Reverse proxy, internal DNS, wildcard TLS
