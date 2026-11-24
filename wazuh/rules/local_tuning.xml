@@ -1,0 +1,9 @@
+<group name="rootcheck,local_tuning,">
+
+  <rule id="100200" level="0">
+    <if_sid>510</if_sid>
+    <match>/dev/.lxc/</match>
+    <description>Rootcheck: LXC /dev/.lxc false positive (tuned out)</description>
+  </rule>
+
+</group>
